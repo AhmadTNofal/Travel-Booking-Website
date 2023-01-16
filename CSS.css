@@ -1,0 +1,312 @@
+body
+{
+    background-color: rgb(7, 7, 7);
+}
+
+.card {
+    width: 500px;
+    height: 500px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 52.6px;
+    transition: all .3s;
+    margin: auto;
+    margin-top: auto;
+    
+   }
+   
+   .card2 {
+    width: 500px;
+    height: 500px;
+    background-color: #1a1a1a;
+    transition: all .2s;
+    margin: auto;
+    margin-top: 50;
+    display: grid;
+    justify-content: center;
+   }
+   
+   .card2:hover {
+    transform: scale(0.98);
+    border-radius: 52.6px;
+   }
+   
+   .card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+   }
+
+#LoginTitle
+{   font-size: 30px;
+    color: white;
+    font-family:  'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    text-align: center;
+}
+
+
+
+#or
+  { 
+    font-size: 30px;
+    font-family: 'Calibri', 'Trebuchet MS', 'sans-serif';
+    text-align: center;
+    color: white;
+  }
+
+.LoginButton {
+    position:relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  .LoginButton:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  .LoginButton:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  .LoginButton::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+
+  .LoginButton:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+  .registerbutton
+  {
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  
+  .input {
+    background-color: #212121;
+    max-width: 190px;
+    height: 40px;
+    padding: 10px;
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+  }
+  
+  .input:focus {
+    color: rgb(0, 255, 255);
+    background-color: #212121;
+    outline-color: rgb(0, 255, 255);
+    box-shadow: -3px -3px 15px rgb(0, 255, 255);
+    transition: .1s;
+    transition-property: box-shadow;
+  }
+
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+
+
+
+#register{
+    text-align: center;
+    font-family:  'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    font-size: 30px;
+    color: white;
+}
+
+#PersonalInfo{
+    text-align: center;
+    font-family:  'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    font-size: 20px;
+    color: white;
+}
+
+#backButton {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+   }
+   
+   #backButton > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+   }
+   
+   #backButton:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+   }
+   
+   #backButton:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+   }
+
+  #Methodtext
+{
+  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;   
+  color: rgb(240, 12, 12);
+  text-align: center;
+}
+
+.methodbutton {
+  position: relative;
+  padding: 15px 32px;
+  width: 250px;
+  outline: none;
+  border: 1px solid #303030;
+  background: #212121;
+  color: #0a9cc8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration-line: underline;
+  text-decoration-color: #0a9cc8   
+ }
+ 
+ .methodbutton:hover {
+  box-shadow: 0 0 10px #02cbf8, 0 0 25px #017fe0, 0 0 50px #0511ff;
+  transition-delay: 0.7s;
+ }
+ 
+ .methodbutton span {
+  position: absolute;
+ }
+ 
+ .methodbutton span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+ }
+ 
+ .methodbutton:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+ }
+ 
+ .methodbutton span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(163deg, #00ff75 100%, #3700ff 100%);
+ }
+ 
+ .methodbutton:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+ }
+ 
+ .methodbutton span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(163deg, #00ff75 0%, #5628ff 100%);
+ }
+ 
+ .methodbutton:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+ }
+ 
+ .methodbutton span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+ }
+ 
+ .methodbutton:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+ }
+ 
+ .methodbutton:active {
+  background: #0804fe;
+  background: linear-gradient(163deg, #00ff75 0%, #05ff33 100%);
+  color: #003cff;
+  box-shadow: 0 0 8px #054ff0, 0 0 8px #03afed, 0 0 8px #13ff03;
+  transition: 0.1s;
+ }
+ 
+ .methodbutton:active span:nth-child(1) 
+ span:nth-child(2) 
+ span:nth-child(2) 
+ span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+ }   
+
+ .centermethod
+ {
+  display: grid;
+  justify-content: center;
+ }
