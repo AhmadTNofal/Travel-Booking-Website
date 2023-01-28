@@ -201,7 +201,7 @@ body
   #Methodtext
 {
   font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;   
-  color: rgb(240, 12, 12);
+  color: white;
   text-align: center;
 }
 
@@ -310,3 +310,17 @@ body
   display: grid;
   justify-content: center;
  }
+
+ .BookYourTrain{
+  color:white;
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;   
+
+ }
+
+.DepartureFrom{
+  color:white;
+  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;   
+ }
+ #CenteringTrain{ 
+}
