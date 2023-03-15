@@ -6,10 +6,12 @@
 <body> 
     <div class="card">
         <div class="card2">
-  <h1>Book your bus</h1>  
-  <table> <tr>
+  <h1 class="BookYourTrain">Book your bus</h1>  
+  <div class="CenteringTrain">
+  <table>
+     <tr>
     <td>
-    <label for="train"> Departure from:</label>
+    <label for="train"class="DepartureFrom"> Departure from:</label>
     <br>
     <select name="bus" id="bus">
       <option value="" disabled selected>Select your option</option>
@@ -24,7 +26,7 @@
     </select>
 </td>
 <td>
-  <label for="bus"> Arrive at:</label>
+  <label for="bus"class="DepartureFrom"> Arrive at:</label>
   <br>
   <select name="bus" id="bus">
     <option value="" disabled selected>Select your option</option>
@@ -41,7 +43,7 @@
 </tr>
 <tr>
     <td>
-      <label for="bus">Weekdays:</label>
+      <label for="bus"class="DepartureFrom">Weekdays:</label>
       <br>
       <select name="bus" id="bus">
         <option value="" disabled selected>Select your option</option>
@@ -52,11 +54,21 @@
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option>
         <option value="Sunday">Sunday</option>
-      </select>  
+      </select>
+    </div>  
     </td>
+    <div class="centerButton">
+    <tr>
     <td>
-      <button> Search </button>  
+      <br>
+      <br>
+      <a href="TrainRides.html">
+      <button class="LoginButton"> Search </button>  
+      </a>
+      </td> 
+      </tr>
     </td>
+  </div>
 </tr>
 </table>
 </div>
