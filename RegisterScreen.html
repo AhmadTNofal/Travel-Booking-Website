@@ -17,24 +17,22 @@
         </a>
     <div class= "card">
         <div class="card2"> 
-        <h2 id="PersonalInfo"> personal information </h2>
-        <input type="text" placeholder="ForeName" class="input">
-        
-        <input type="text" placeholder="SurName" class="input">
-        <br>
-    
-        <input type="tel" placeholder="Telephone Number" class="input">
-        
-        <input type="email" placeholder="Email" class="input">
-        <br>
-
-        <input type="password" placeholder="Password" class="input">
-        <input type="password" placeholder="Confirm Password" class="input">
-        <br> 
-        <br>
-        <button class="LoginButton">Submit</button>
-        <br>
-        <br>
+            <form action="RegisterScreen.py" method="post">
+                <h2 id="PersonalInfo"> personal information </h2>
+                <input type="text" placeholder="ForeName" class="input" id="first_name" name="first_name">
+                <input type="text" placeholder="SurName" class="input" id="last_name" name="last_name">
+                <br>
+                <input type="tel" placeholder="Telephone Number" class="input" id="telephone_number" name="telephone_number">
+                <input type="email" placeholder="Email" class="input" id="email" name="email">
+                <br>
+                <input type="password" placeholder="Password" class="input" id="password" name="password">
+                <input type="password" placeholder="Confirm Password" class="input" id="confirm_password" name="confirm_password">
+                <br>
+                <br>
+                <button class="LoginButton" type="submit" value="Create Account">Submit</button>
+                <br>
+                <br>
+              </form>       
     </div>
     </div>
     <br>
