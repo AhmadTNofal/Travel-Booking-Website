@@ -1,75 +1,49 @@
 <html>
-<head> 
-    <title> Book your Airplane </title> 
-    <link href="CSS.css" rel="stylesheet" type="text/css"> 
-</head>
-<body> 
-    <div class="card">
+    <head> 
+      <title>Book your Airplane</title> 
+      <link href="CSS.css" rel="stylesheet" type="text/css"> 
+    </head>
+    <body> 
+      <div class="card">
         <div class="card2">
-  <h1 class="BookYourTrain">Book your Airplane</h1>
-  <div class="CenteringTrain">  
-  <table> <tr>
-    <td>
-    <label for="Airplane" class="DepartureFrom"> Departure from:</label>
-    <br>
-    <select name="Airplane" id="Airplane">
-      <option value="" disabled selected>Select your option</option>
-      <option value="Manchester">Manchester</option>
-      <option value="Edinburgh">Edinburgh</option>
-      <option value="London">London</option>
-      <option value="Birmingham">Birmingham</option>
-      <option value="Bristol">Bristol</option>
-      <option value="Newcastle">Newcastle</option>
-      <option value="Cardiff">Cardiff</option>
-      <option value="Glasgow">Glasgow</option>
-    </select>
-</td>
-<td>
-  <label for="Airplane" class="DepartureFrom"> Arrive at:</label>
-  <br>
-  <select name="Airplane" id="Airplane">
-    <option value="" disabled selected>Select your option</option>
-    <option value="Manchester">Manchester</option>
-    <option value="Edinburgh">Edinburgh</option>
-    <option value="London">London</option>
-    <option value="Birmingham">Birmingham</option>
-    <option value="Bristol">Bristol</option>
-    <option value="Newcastle">Newcastle</option>
-    <option value="Cardiff">Cardiff</option>
-    <option value="Glasgow">Glasgow</option>
-  </select>
-</td>
-</tr>
-<tr>
-    <td>
-      <label for="Airplane"class="DepartureFrom">Weekdays:</label>
-      <br>
-      <select name="Airplane" id="Airplane">
-        <option value="" disabled selected>Select your option</option>
-        <option value="Monday">Monday</option>
-        <option value="Tuesday">Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-        <option value="Saturday">Saturday</option>
-        <option value="Sunday">Sunday</option>
-      </select>  
-    </td>
-          
-    <div class="centerButton">
-    <tr>
-    <td> 
-    <br>
-    <br>
-      <a href="TrainRides.html">
-        <button class="LoginButton"> Search </button>  
-    </td>
-  </tr>
-</div>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</body>
+          <h1 class="BookYourTrain">Book your airplane</h1>  
+          <div class="CenteringTrain">
+            <form method="post" action="Airplane.py">
+              <table> 
+                <tr>
+                  <td>    
+                    <label for="departure" class="DepartureFrom">Departure from:</label>
+                    <br>
+                    <input type="text" name="departure" placeholder="Departure" class="input">
+                  </td>
+                  <td>
+                    <label for="destination" class="DepartureFrom">Arrive at:</label>
+                    <br>
+                    <input type="text" name="destination" placeholder="Arrival" class="input">
+                  </td> 
+                </tr>
+                <tr>
+                  <td>
+                    <label for="weekday" class="DepartureFrom">Weekdays:</label>
+                    <br>
+                    <div class="select">
+                      <input type="text" name="weekday" placeholder="Week Day" class="input">
+                    </div>
+                  </td>
+                  <div class="centerButton">
+                    <tr> 
+                      <td>
+                        <br>
+                        <br>
+                        <button type="submit" class="LoginButton">Search</button>  
+                      </td>
+                    </tr>
+                  </div>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </body>
 </html>
