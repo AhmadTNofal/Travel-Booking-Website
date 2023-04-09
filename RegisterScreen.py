@@ -1,4 +1,4 @@
-# #!"C:\Users\Ahmad Taher\AppData\Local\Programs\Python\Python311\python.exe"
+#!"C:\Users\Ahmad Taher\AppData\Local\Programs\Python\Python311\python.exe"
 
 import mysql.connector
 import cgi
