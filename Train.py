@@ -3,6 +3,20 @@
 import cgi
 import mysql.connector
 
+def generate_booking_id(bus, train, airplane, cursor):
+    if bus:
+        table = 'BusBooking'
+    elif train:
+        table = 'TrainBooking'
+    elif airplane:
+        table = 'AirplaneBooking'
+    else:
+        return None
+
+    cursor.execute(f"SELECT COUNT(*) FROM {table};")
+    result = cursor.fetchone()
+    return f"{table[0]}{result[0] + 1}"
+
 # Connect to MySQL database
 mydb = mysql.connector.connect(
   host="localhost",
@@ -11,42 +25,53 @@ mydb = mysql.connector.connect(
   database="webprogramming"
 )
 
-# Check if the form has been submitted
 form = cgi.FieldStorage()
+email = form.getvalue("email")
+departure = form.getvalue('departure')
+destination = form.getvalue('destination')
+weekday = form.getvalue('weekday')
 
-if form:
-    # Get the form data
-    departure = form.getvalue('departure')
-    destination = form.getvalue('destination')
-    weekday = form.getvalue('weekday')
+sql_trip = "SELECT T.TrainID, T.Price FROM journey J, train T WHERE J.Departure = %s AND J.Destination = %s AND T.DayOfWeek = %s AND J.JourneyID = T.JourneyID"
+sql_get_account = "SELECT AccountID FROM account WHERE Email = %s"
 
-    # Define the SQL query to check if the trip is available
-    sql_trip = "SELECT COUNT(*) FROM journey J, train T WHERE J.Departure = %s AND J.Destination = %s AND T.DayOfWeek = %s"
-
-    # Execute the SQL query
+try:
     cursor = mydb.cursor()
     cursor.execute(sql_trip, (departure, destination, weekday))
-    result = cursor.fetchone()
+    trip_data = cursor.fetchone()
 
-    # Check if the trip is available
-    if result[0] > 0:
+    if trip_data:
+        train_id, price = trip_data
+        cursor.execute(sql_get_account, (email,))
+        account_id = cursor.fetchone()[0]
+
+        booking_id = generate_booking_id(bus=False, train=True, airplane=False, cursor=cursor)
+        sql_insert_booking = "INSERT INTO TrainBooking (TrainBookingID, TrainID, AccountID) VALUES (%s, %s, %s)"
+        cursor.execute(sql_insert_booking, (booking_id, train_id, account_id))
+        mydb.commit()
+
         print("Content-type:text/html\r\n\r\n")
-        print("<html>")
-        print("<head>")
-        print("<title>Book your train</title>")
-        print('<link href="CSS.css" rel="stylesheet" type="text/css">')
-        print("</head>")
-        print("<body>")
-        print("<div class=\"card\">")
-        print("<div class=\"card2\">")
-        print("<p id=\"LoginTitle\">The trip is available!</p>")
-        print("<a href=\"Card.html\">")
-        print("<button class=\"LoginButton\">Go To Payment</button>")
-        print("</a>")
-        print("</div>")
-        print("</div>")
-        print("</body>")
-        print("</html>")
+        print(f'''
+            <html>
+<head>
+<title>Account</title>
+<link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="card">
+<div class="card2">
+    <h1 id="LoginTitle">Account details</h1>
+    <p id="LoginTitle">The price is: {price}£</p>
+<a href = \"Card.html\">
+<button class="LoginButton">Pay Now</button>
+</a>
+</div>
+</div>
+</body>
+
+</html>
+        ''')
+
     else:
         print("Content-type:text/html\r\n\r\n")
         print("<html>")
@@ -66,21 +91,14 @@ if form:
         print("</body>")
         print("</html>")
     mydb.close()
-else:
-    print("Content-type:text/html\r\n\r\n")
+
+except mysql.connector.Error as error:
+    print("Content-Type: text/html")
+    print()
     print("<html>")
-    print("<head>")
-    print("<title>Book your train</title>")
-    print('<link href="CSS.css" rel="stylesheet" type="text/css">')
-    print("</head>")
     print("<body>")
-    print("<div class=\"card\">")
-    print("<div class=\"card2\">")
-    print("<p id=\"LoginTitle\">No form data submitted</p>")
-    print("<a href=\"Train.html\">")
-    print("<button class=\"LoginButton\"> Go Back</button>")
-    print("</a>")
-    print("</div>")
-    print("</div>")
+    print("<h1>Error connecting to database:</h1>")
+    print("<p>{}</p>".format(error))
     print("</body>")
     print("</html>")
+

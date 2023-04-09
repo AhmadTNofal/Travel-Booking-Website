@@ -1,4 +1,4 @@
-#!"C:\Users\Ahmad Taher\AppData\Local\Programs\Python\Python311\python.exe"
+# #!"C:\Users\Ahmad Taher\AppData\Local\Programs\Python\Python311\python.exe"
 
 import mysql.connector
 import cgi
@@ -94,3 +94,25 @@ except mysql.connector.Error as error:
     print("<p>{}</p>".format(error))
     print("</body>")
     print("</html>")
+import smtplib
+
+sender_email = 'your_email@gmail.com'
+receiver_email = 'recipient_email@gmail.com'
+password = 'your_password'
+
+try:
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, password)
+    message = 'Hello, this is a test email!'
+    server.sendmail(sender_email, receiver_email, message)
+    print('Email sent successfully!')
+except smtplib.SMTPException as e:
+    print('SMTP error occurred: ', e)
+except socket.error as e:
+    print('Socket error occurred: ', e)
+except ssl.SSLError as e:
+    print('SSL error occurred: ', e)
+finally:
+    server.quit()
+

@@ -1,37 +1,40 @@
+
 <html>
-    <head>
-        <title>The Boy's Therapy</title>
-        <link href="CSS.css" rel="stylesheet" type="text/css">
-    </head>
+
+<head>
+  <title>The Boy's Therapy</title>
+  <link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
 <body>
 
-<div class="card">
+  <div class="card">
     <div class="card2">
 
-<table>
-<tr>    
-    <form method="post" action="Login.py">
-    <h1 id="LoginTitle">LOGIN</h1> 
-	<input type="text" placeholder="Email" class="input" name="email">
-    <br>
-    <input type="password" placeholder="Password" class="input" name="password">
-   
-    <br>
-    
-    
-     <button class="LoginButton" >Login</button>
-    </form>
+      <table>
+        <tr>
+          <form method="post" action="Login.py">
+            <form id="searchForm" method="post">  
+            <h1 id="LoginTitle">LOGIN</h1>
+            <input type="text" placeholder="Email" class="input" name="email">
+            <br>
+            <input type="password" placeholder="Password" class="input" name="password">
+            <br>
+            
+            <button class="LoginButton">Login</button>
+          </form>
+          </form>
+          <h2 id="or">OR</h2>
 
-    <h2 id="or">OR</h2>
+          <div class="registerbutton">
+            <a href="RegisterScreen.html">
+              <button class="LoginButton">Register</button>
+            </a>
+          </div>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
 
-<div class="registerbutton">
-    <a href="RegisterScreen.html">
-        <button class="LoginButton">Register</button>
-    </a>
-</div>
-</tr>
-</table>
-</div>
-</div>
-</body> 
 </html>
+

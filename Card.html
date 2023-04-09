@@ -1,30 +1,76 @@
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <title>Card Details</title>
         <link href="CSS.css" rel="stylesheet" type="text/css">
+        <script>
+            function promptForEmailAndSubmit(event) {
+                event.preventDefault();
+                const email = prompt("Please enter your email:");
+                if (email) {
+                    document.getElementById("emailInput").value = email;
+                    document.getElementById("cardForm").submit();
+                }
+            }
+        </script>
     </head>
+    <body>
+        <div class="card">
+            <div class="card2">
+                <h1 id="LoginTitle">Card details</h1>
+                <br>
+                <form id="cardForm" action="Card.py" method="post">
+                    <label class="BookYourTrain">Card Number</label>
+                    <input type="text" name="card_number" placeholder="Card Number" class="input">
+                    <br>
+                    <label class="BookYourTrain">Name on Card</label>
+                    <input type="text" name="name_on_card" placeholder="Name on Card" class="input">
+                    <br>
+                    <label class="BookYourTrain">Expiration Date</label>
+                    <input type="text" name="expiration_date" placeholder="Expiration Date" class="input">
+                    <br>
+                    <label class="BookYourTrain">CVV</label>
+                    <input type="text" name="cvv" placeholder="CVV" class="input">
+                    <br>
+                    <input type="hidden" name="email" id="emailInput">
+                    <br>
+                    <button type="submit" class="LoginButton" onclick="promptForEmailAndSubmit(event)">Submit</button>
+                </form>
+            </div>
+        </div>
+        <form action="SavedCard.py" method="post">
+            <button class="LoginButton" onclick="promptForEmailAndSubmit(event)">Use saved card</button>
+            <input type="hidden" name="email" value="" />
+    </form>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Card Details</title>
+    <link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
 <body>
     <div class="card">
-    <div class="card2">
-    <h1 id="LoginTitle"> Card details </h1>
-        <br>
-
-            <p class="BookYourTrain">Card Number</p>
-              <input type="text" placeholder="Card Number" class="input">
-            
-              <p class="BookYourTrain">Name on Card</p>
-              <input type="text" placeholder="Name on Card" class="input">
-            
-            
-              <p class="BookYourTrain">Expiration Date</p>
-              <input type="text" placeholder="Expiration Date" class="input">
-
-              <p class="BookYourTrain">CVV</p>
-             <input type="text" placeholder="CVV" class="input">
-             <button class="LoginButton">Submit</button>
-
-          
-    </div>
-    </div> 
+        <div class="card2">
+	<h1 id="LoginTitle">Card Details</h1>
+	<form action="Card.py" method="post">
+		<label for="email" id="PersonalInfo">Email address:</label><br>
+		<input type="text" id="email" name="email"  required><br>
+		<label for="card_number" id="PersonalInfo">Card number:</label><br>
+		<input type="text" id="card_number" name="card_number" ><br>
+		<label for="name_on_card" id="PersonalInfo">Name on card:</label><br>
+		<input type="text" id="name_on_card" name="name_on_card"  ><br>
+		<label for="expiration_date"id="PersonalInfo">Expiration date:</label><br>
+		<input type="date" id="expiration_date" name="expiration_date"  ><br>
+		<label for="cvv" id="PersonalInfo">CVV:</label><br>
+		<input type="password" id="cvv" name="cvv"  ><br>
+		<input type="submit" class="LoginButton" value="Save Card">
+		<input type="checkbox" name="use_saved_card" value="1" class="LoginButton">
+		<label for="use_saved_card" id="PersonalInfo">Use saved card for payment</label>
+	</form>
+</div>
+</div>
 </body>
 </html>

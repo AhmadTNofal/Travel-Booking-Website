@@ -27,3 +27,26 @@ if result:
 else:
     print("<script>alert('Invalid email or password. Please try again.')</script>")
     print("<meta http-equiv='refresh' content='0; url=Login.html'>")
+
+
+import smtplib
+
+sender_email = 'your_email@gmail.com'
+receiver_email = 'recipient_email@gmail.com'
+password = 'your_password'
+
+try:
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, password)
+    message = 'Hello, this is a test email!'
+    server.sendmail(sender_email, receiver_email, message)
+    print('Email sent successfully!')
+except smtplib.SMTPException as e:
+    print('SMTP error occurred: ', e)
+except socket.error as e:
+    print('Socket error occurred: ', e)
+except ssl.SSLError as e:
+    print('SSL error occurred: ', e)
+finally:
+    server.quit()
